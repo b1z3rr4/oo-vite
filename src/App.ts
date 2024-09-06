@@ -1,6 +1,9 @@
 import { Page } from "./abstracts/Page";
 import { Library } from "./entities/Library";
 import { NotFound } from "./pages/404";
+import { Books } from "./pages/books";
+import { Home } from "./pages/home";
+import { Users } from "./pages/users";
 
 export class App {
     private _appElement: HTMLElement;
@@ -33,17 +36,17 @@ export class App {
 
     public render() {
         const path = window.location.pathname;
-        let pageComponent: Page = { render: () => 'oi', build: () => { } };
+        let pageComponent: Page;
 
         switch (path) {
             case '/':
-                pageComponent = { render: () => 'home', build: () => { } }
+                pageComponent = new Home(this._library);
                 break;
             case '/users':
-                pageComponent = { render: () => 'usuarios', build: () => { } }
+                pageComponent = new Users(this._library);
                 break;
             case '/books':
-                pageComponent = { render: () => 'livros', build: () => { } }
+                pageComponent = new Books(this._library);
                 break;
             default:
                 pageComponent = new NotFound();
