@@ -1,4 +1,4 @@
 export interface Page {
     render(): string
-    build(): void;
+    build?: () => void;
 }

@@ -1,5 +1,6 @@
+import { Page } from "./abstracts/Page";
 import { Library } from "./entities/Library";
-import { Page } from "./interfaces/Page";
+import { NotFound } from "./pages/404";
 
 export class App {
     private _appElement: HTMLElement;
@@ -45,7 +46,7 @@ export class App {
                 pageComponent = { render: () => 'livros', build: () => { } }
                 break;
             default:
-                pageComponent = { render: () => '404 nao encontrei', build: () => { } }
+                pageComponent = new NotFound();
                 break;
         }
 
