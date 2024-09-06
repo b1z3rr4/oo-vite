@@ -1,5 +1,5 @@
 import { App } from './App';
-import { LibraryNoPersistence } from './entities/Library';
+import { LibraryNoPersistence } from './entities/LibraryNoPersistence';
 import './style.css';
 import { html } from './utils/html';
 
