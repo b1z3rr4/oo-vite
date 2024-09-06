@@ -1,5 +1,5 @@
+import { Library } from './abstracts/Library';
 import { Page } from './abstracts/Page';
-import { Library } from './entities/Library';
 import { NotFound } from './pages/404';
 import { Books } from './pages/books';
 import { Home } from './pages/home';

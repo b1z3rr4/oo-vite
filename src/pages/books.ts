@@ -1,6 +1,6 @@
+import { Library } from '../abstracts/Library';
 import { Book } from '../entities/Book';
 import { DigitalBook } from '../entities/DigitalBook';
-import { Library } from '../entities/Library';
 import { addBook } from '../use-cases/addBook';
 import { html } from '../utils/html';
 
@@ -53,8 +53,8 @@ export class Books {
           </thead>
           <tbody class="bg-gray-600 divide-y divide-gray-700">
             ${books
-              .map(
-                (book) => html`
+        .map(
+          (book) => html`
                   <tr>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
@@ -78,8 +78,8 @@ export class Books {
                     </td>
                   </tr>
                 `
-              )
-              .join('')}
+        )
+        .join('')}
           </tbody>
         </table>
 

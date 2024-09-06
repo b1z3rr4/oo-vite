@@ -1,4 +1,4 @@
-import { Library } from '../entities/Library';
+import { Library } from '../abstracts/Library';
 import { User } from '../entities/User';
 import { addUser } from '../use-cases/addUser';
 import { html } from '../utils/html';
@@ -44,8 +44,8 @@ export class Users {
           </thead>
           <tbody class="bg-gray-600 divide-y divide-gray-700">
             ${users
-              .map(
-                (user) => html`
+        .map(
+          (user) => html`
                   <tr>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
@@ -59,8 +59,8 @@ export class Users {
                     </td>
                   </tr>
                 `
-              )
-              .join('')}
+        )
+        .join('')}
           </tbody>
         </table>
 

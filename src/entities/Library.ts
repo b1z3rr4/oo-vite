@@ -1,13 +1,10 @@
-import { BorrowedBook } from '../types/borrowedBooks';
+import { Library } from '../abstracts/Library';
 import { Book } from './Book';
 import { User } from './User';
 
-export class Library {
-  private _booksList: Array<Book>;
-  private _usersList: Array<User>;
-  private _borrowedBooks: Array<BorrowedBook>;
-
+export class LibraryNoPersistence extends Library {
   constructor() {
+    super();
     this._booksList = [];
     this._usersList = [];
     this._borrowedBooks = [];

@@ -1,5 +1,5 @@
+import { Library } from '../abstracts/Library';
 import { Page } from '../abstracts/Page';
-import { Library } from '../entities/Library';
 import { BorrowedBook } from '../types/borrowedBooks';
 import { lendBook } from '../use-cases/lendBook';
 import { returnBook } from '../use-cases/returnBook';
