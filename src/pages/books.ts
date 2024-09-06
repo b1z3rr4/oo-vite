@@ -1,13 +1,15 @@
 import { Library } from '../abstracts/Library';
+import { Page } from '../abstracts/Page';
 import { Book } from '../entities/Book';
 import { DigitalBook } from '../entities/DigitalBook';
 import { addBook } from '../use-cases/addBook';
 import { html } from '../utils/html';
 
-export class Books {
+export class Books extends Page {
   private library: Library;
 
   constructor(library: Library) {
+    super();
     this.library = library;
   }
 

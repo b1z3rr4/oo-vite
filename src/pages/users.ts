@@ -1,12 +1,14 @@
 import { Library } from '../abstracts/Library';
+import { Page } from '../abstracts/Page';
 import { User } from '../entities/User';
 import { addUser } from '../use-cases/addUser';
 import { html } from '../utils/html';
 
-export class Users {
+export class Users extends Page {
   private library: Library;
 
   constructor(library: Library) {
+    super();
     this.library = library;
   }
 
