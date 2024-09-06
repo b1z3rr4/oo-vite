@@ -46,8 +46,8 @@ export class Users extends Page {
           </thead>
           <tbody class="bg-gray-600 divide-y divide-gray-700">
             ${users
-        .map(
-          (user) => html`
+              .map(
+                (user) => html`
                   <tr>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
@@ -61,8 +61,8 @@ export class Users extends Page {
                     </td>
                   </tr>
                 `
-        )
-        .join('')}
+              )
+              .join('')}
           </tbody>
         </table>
 

@@ -55,8 +55,8 @@ export class Books extends Page {
           </thead>
           <tbody class="bg-gray-600 divide-y divide-gray-700">
             ${books
-        .map(
-          (book) => html`
+              .map(
+                (book) => html`
                   <tr>
                     <td
                       class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
@@ -80,8 +80,8 @@ export class Books extends Page {
                     </td>
                   </tr>
                 `
-        )
-        .join('')}
+              )
+              .join('')}
           </tbody>
         </table>
 
