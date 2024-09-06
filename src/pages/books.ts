@@ -17,9 +17,7 @@ export class Books {
 
     return html`
       <div class="container mx-auto p-4">
-        <h2 class="text-4xl font-extrabold mb-8 text-white">
-          Lista de Livros
-        </h2>
+        <h2 class="text-4xl font-extrabold mb-8 text-white">Lista de Livros</h2>
         <button
           id="open-book-modal"
           class="text-white bg-blue-700 p-2.5 border border-blue-800 h-auto hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
@@ -267,10 +265,14 @@ export class Books {
               >
                 ${book.author}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
+              >
                 ${book.ISBN}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
+              >
                 ${book.available ? 'Disponível' : 'Emprestado'}
               </td>
             </tr>

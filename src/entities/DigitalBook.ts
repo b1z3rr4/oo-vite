@@ -9,13 +9,8 @@ export class DigitalBook extends Book {
   }
 
   toLoan() {
-    if (this._available) {
+    if (this._available && this._format) {
       this._available = false;
-      console.log(
-        `${this._title} (format: ${this._format}) foi emprestado por 7 dias.`
-      );
-    } else {
-      console.log(`${this._title} não está disponível.`);
     }
   }
 }

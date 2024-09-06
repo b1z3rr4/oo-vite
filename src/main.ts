@@ -1,6 +1,6 @@
-import './style.css'
 import { App } from './App';
 import { Library } from './entities/Library';
+import './style.css';
 import { html } from './utils/html';
 
 document.body.innerHTML = html`
@@ -27,6 +27,6 @@ const appElement = document.getElementById('app');
 const library = new Library();
 
 if (appElement) {
-    const app = new App(appElement, library);
-    app.init();
+  const app = new App(appElement, library);
+  app.init();
 }

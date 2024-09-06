@@ -1,7 +1,7 @@
 export abstract class Page {
-    constructor() {}
+  constructor() {}
 
-    abstract render(): string;
+  abstract render(): string;
 
-    build(): void {};
+  build(): void {}
 }

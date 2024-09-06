@@ -1,9 +1,10 @@
+import { Page } from '../abstracts/Page';
 import { Library } from '../entities/Library';
+import { BorrowedBook } from '../types/borrowedBooks';
 import { lendBook } from '../use-cases/lendBook';
+import { returnBook } from '../use-cases/returnBook';
 import { formatDate } from '../utils/formatDate';
 import { html } from '../utils/html';
-import { returnBook } from '../use-cases/returnBook';
-import { Page } from '../abstracts/Page';
 
 export class Home extends Page {
   private library: Library;
@@ -78,13 +79,35 @@ export class Home extends Page {
         </div>
 
         <div>
-          <table class="box-border min-w-full shadow-sm rounded-lg overflow-hidden mt-4">
+          <table
+            class="box-border min-w-full shadow-sm rounded-lg overflow-hidden mt-4"
+          >
             <thead class="text-xs text-gray-700 uppercase bg-gray-50">
               <tr>
-                <th scope="col" class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider">Livro</th>
-                <th scope="col" class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider">Portador</th>
-                <th scope="col" class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider">Data de Saída</th>
-                <th scope="col" class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider">Ações</th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider"
+                >
+                  Livro
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider"
+                >
+                  Portador
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider"
+                >
+                  Data de Saída
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider"
+                >
+                  Ações
+                </th>
               </tr>
             </thead>
             <tbody id="home-list">
@@ -221,13 +244,12 @@ export class Home extends Page {
       if (target && target.matches('.return-book-button')) {
         const bookISBN = target.getAttribute('data-book-isbn');
         const userId = Number(target.getAttribute('data-user-id'));
-        console.log(bookISBN, userId);
         this.handleReturnBook(bookISBN, userId);
       }
     });
   }
 
-  private renderList(list: any[]): string {
+  private renderList(list: BorrowedBook[]): string {
     return list
       .map(
         (borrowedBook) => html`
@@ -242,7 +264,7 @@ export class Home extends Page {
               scope="row"
               class="px-6 py-3 bg-gray-700 border-b border-gray-700 font-bold text-left text-sm text-gray-200 uppercase tracking-wider"
             >
-              ${borrowedBook.user.nome}
+              ${borrowedBook.user.name}
             </th>
             <th
               scope="row"
@@ -257,7 +279,7 @@ export class Home extends Page {
               <button
                 class="return-book-button text-white bg-red-600 p-2.5 border border-red-800 h-auto hover:bg-red-700 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-4 py-2 text-center"
                 data-book-isbn="${borrowedBook.book.ISBN}"
-                data-user-id="${borrowedBook.user.ID}"
+                data-user-id="${borrowedBook.user.code}"
               >
                 Devolver
               </button>
@@ -326,7 +348,7 @@ export class Home extends Page {
     this.updateTable();
   }
 
-  private getFilteredBorrowedBooks(): any[] {
+  private getFilteredBorrowedBooks(): Array<BorrowedBook> {
     if (!this.searchTerm && !this.searchTermUser)
       return this.library.borrowedBooks;
 

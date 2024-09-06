@@ -205,7 +205,9 @@ export class Users {
               >
                 ${user.name}
               </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">
+              <td
+                class="px-6 py-4 whitespace-nowrap text-sm font-medium text-white"
+              >
                 ${user.code}
               </td>
             </tr>
